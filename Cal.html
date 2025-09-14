@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Anual de Estudio de Inglés</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .collapsible-content.expanded {
+            max-height: 1000px;
+        }
+        .rotated-arrow {
+            transform: rotate(180deg);
+        }
+        .radar-chart {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+        <header class="text-center py-8">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-[#5B6C9B] mb-2">Calendario Anual de Inglés</h1>
+            <p class="text-2xl text-[#8E9AAF] font-medium">De A1 a C2</p>
+        </header>
+
+        <section id="resumen-anual" class="bg-white p-6 rounded-2xl shadow-lg my-8">
+            <p class="text-lg md:text-xl text-center mb-6 text-gray-600">Este calendario te ayuda a estructurar tu aprendizaje. Los tiempos de estudio son sugerencias y la consistencia es más importante que la duración.</p>
+
+            <h2 class="text-3xl font-bold text-center mb-6 text-[#5B6C9B]">Resumen del Plan Anual</h2>
+            
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="#a1-section" class="level-card bg-[#BDD9D2] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#A9C8C0] text-center">
+                    A1<br><span class="text-sm">4 meses</span>
+                </a>
+                <a href="#a2-section" class="level-card bg-[#98D6B4] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#85C4A0] text-center">
+                    A2<br><span class="text-sm">7 meses</span>
+                </a>
+                <a href="#b1-section" class="level-card bg-[#8AB6C7] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#77A3B4] text-center">
+                    B1<br><span class="text-sm">10 meses</span>
+                </a>
+                <a href="#b2-section" class="level-card bg-[#8AA0C7] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#778DB4] text-center">
+                    B2<br><span class="text-sm">12 meses</span>
+                </a>
+                <a href="#c1-section" class="level-card bg-[#A78AB8] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#9477A5] text-center">
+                    C1<br><span class="text-sm">12 meses+</span>
+                </a>
+                <a href="#c2-section" class="level-card bg-[#8A8AB8] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#7777A5] text-center">
+                    C2<br><span class="text-sm">12 meses+</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-2xl shadow-lg my-8">
+            <h2 class="text-3xl font-bold text-center mb-6 text-[#5B6C9B]">Visualización de Progreso</h2>
+            <p class="text-lg md:text-xl text-center mb-6 text-gray-600">Este gráfico muestra las horas estimadas de estudio para cada nivel. Ten en cuenta que el tiempo puede variar dependiendo de la persona.</p>
+            <div class="chart-container w-full max-w-2xl mx-auto h-96">
+                <canvas id="studyHoursChart"></canvas>
+            </div>
+        </section>
+        
+        <!-- Nivel A1 (Meses 1-4) -->
+        <section id="a1-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel A1</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">El nivel A1 se centra en construir los cimientos del inglés. La meta principal es familiarizarse con las estructuras gramaticales más simples, el vocabulario básico y las frases de uso diario.</p>
+                <div class="space-y-4">
+                    <!-- Enero -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Enero: Fundamentos
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Verbo 'to be' y pronombres.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Saludos y presentaciones.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee diálogos sencillos.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha grabaciones básicas.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Habla: Practica la pronunciación.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Repasa lo aprendido y haz un breve resumen.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Febrero -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Febrero: Verbos de Acción
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Presente simple con verbos de acción.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Verbos de rutina diaria.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe oraciones sencillas sobre tu día.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Habla: Describe tu rutina diaria a un compañero.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Cultura: Lee sobre un festival o tradición.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Juega a una aplicación de vocabulario.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Marzo -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Marzo: Descripción de Lugares
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: 'There is' / 'There are'.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Lugares de la ciudad.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe un párrafo sobre tu barrio.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha indicaciones de cómo llegar a un lugar.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Habla: Da indicaciones a un compañero.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Juega a una aplicación de gramática.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Abril -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Abril: Planes y Futuro
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Futuro con 'will' y 'going to'.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Verbos de movimiento y transporte.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe sobre tus planes para el verano.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha a alguien hablar sobre sus planes.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Habla: Practica conversaciones sobre el futuro.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Repasa la gramática y haz un test de nivel.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nivel A2 (Meses 5-11) -->
+        <section id="a2-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel A2</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">En este nivel, tu objetivo es consolidar los fundamentos y expandir tus habilidades para hablar sobre rutinas, planes y experiencias pasadas. Dominarás los tiempos verbales básicos y ganarás fluidez en conversaciones cotidianas.</p>
+                <div class="space-y-4">
+                    <!-- Mayo -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Mayo: Hablar del Pasado
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Pasado simple (`-ed`, verbos irregulares).</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Acciones pasadas y verbos de acción.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee un cuento corto para principiantes.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha un relato sobre una experiencia pasada.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe un diario sobre tu día de ayer.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Practica preguntas con el pasado simple.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Junio -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Junio: Adjetivos y Adverbios
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Comparativos y superlativos.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Adjetivos para describir personas y lugares.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee descripciones de personas famosas.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha una entrevista sobre un viaje.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe una comparación entre dos lugares.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Practica la pronunciación de los adjetivos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Julio -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Julio: Verbos Modales
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Uso de 'can'/'could' para habilidad y permiso.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Deportes y hobbies.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee sobre deportistas famosos.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha un pódcast sobre hobbies.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe un párrafo sobre lo que puedes hacer.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Practica hacer preguntas con los verbos modales.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Agosto -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Agosto: Conversaciones Cotidianas
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Uso de `some` y `any`.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Comida y compras.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee recetas sencillas o listas de la compra.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha un diálogo en un restaurante.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Habla: Practica pedir en un restaurante.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Mira un tutorial de cocina en inglés.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nivel B1 (Meses 12-21) -->
+        <section id="b1-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel B1</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">En el nivel B1, te moverás de lo básico a lo funcional. Aprenderás a narrar historias, a expresar opiniones y a usar el lenguaje de respeto básico. Tu vocabulario se expandirá para incluir temas más complejos.</p>
+                <div class="space-y-4">
+                    <!-- Septiembre -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Septiembre: Narración de Historias
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Presente perfecto para experiencias.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Acciones y eventos de la vida.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee biografías cortas.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha una historia contada en un pódcast.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe una historia personal.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Graba tu propia historia para practicar la fluidez.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Octubre -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Octubre: Dar y Pedir Opinión
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Discurso indirecto.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Expresiones para opinar.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee un artículo de opinión.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha un debate o conversación.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe un correo electrónico formal e informal.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Debate sobre un tema de actualidad con un compañero.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Noviembre -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Noviembre: Hablar de Planes a Futuro
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Futuro con 'present continuous'.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Temas de viajes y vacaciones.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee blogs de viajes en inglés.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha a alguien hablar de sus planes de viaje.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe una carta de disculpa o de agradecimiento.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Practica dar y pedir información sobre planes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Diciembre -->
+                    <div class="collapsible-container border border-gray-200 rounded-xl">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-gray-200 text-gray-800 focus:outline-none">
+                            Diciembre: Vocabulario de la Vida Cotidiana
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Lunes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Gramática: Repaso de todos los tiempos verbales aprendidos.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Martes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Vocabulario: Frases para el trabajo y estudios.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Miércoles</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Lectura: Lee noticias de la web en inglés.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Jueves</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escucha: Escucha una entrevista sobre un trabajo.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Viernes</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Escritura: Escribe tu currículum o una carta de presentación.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center p-2 rounded-lg bg-white shadow-sm">
+                                    <div class="w-1/4 text-center">
+                                        <p class="font-bold text-lg text-[#5B6C9B]">Fin de semana</p>
+                                    </div>
+                                    <div class="w-3/4">
+                                        <p class="font-medium text-gray-700">Revisión: Autoevaluación final y plan para el próximo nivel.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gráfico de Habilidades Diarias -->
+        <section class="bg-white p-6 rounded-2xl shadow-lg my-8">
+            <h2 class="text-3xl font-bold text-center mb-6 text-[#5B6C9B]">Gráfico de Habilidades Diarias</h2>
+            <p class="text-lg md:text-xl text-center mb-6 text-gray-600">Este gráfico de radar muestra el enfoque de las habilidades de estudio para un día típico.</p>
+            <div class="radar-chart flex justify-center">
+                <canvas id="dailySkillsChart"></canvas>
+            </div>
+        </section>
+
+        <footer class="text-center py-8 text-gray-500">
+            <p>&copy; 2024 Calendario de Estudio de Inglés. Todos los derechos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const collapsibleButtons = document.querySelectorAll('.collapsible-container button');
+        const levelLinks = document.querySelectorAll('.level-card');
+        const studyHoursCtx = document.getElementById('studyHoursChart').getContext('2d');
+        const dailySkillsCtx = document.getElementById('dailySkillsChart').getContext('2d');
+
+        const studyData = {
+            labels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+            data: [120, 175, 225, 225, 275, 300],
+            colors: ['#BDD9D2', '#98D6B4', '#8AB6C7', '#8AA0C7', '#A78AB8', '#8A8AB8']
+        };
+
+        const dailySkillsData = {
+            labels: ['Gramática', 'Vocabulario', 'Lectura', 'Escritura', 'Escucha', 'Habla'],
+            data: [4, 5, 3, 3, 4, 5] // Valores de ejemplo para un día
+        };
+
+        const studyHoursChart = new Chart(studyHoursCtx, {
+            type: 'bar',
+            data: {
+                labels: studyData.labels,
+                datasets: [{
+                    label: 'Horas estimadas por nivel',
+                    data: studyData.data,
+                    backgroundColor: studyData.colors,
+                    borderColor: studyData.colors.map(color => color.replace(')', ', 0.8)')),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y + ' horas';
+                                }
+                                return label;
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Horas estimadas por nivel',
+                        font: {
+                            size: 16
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Horas de Estudio'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Nivel'
+                        }
+                    }
+                }
+            }
+        });
+        
+        const dailySkillsChart = new Chart(dailySkillsCtx, {
+            type: 'radar',
+            data: {
+                labels: dailySkillsData.labels,
+                datasets: [{
+                    label: 'Enfoque de Habilidades',
+                    data: dailySkillsData.data,
+                    backgroundColor: 'rgba(91, 108, 155, 0.2)',
+                    borderColor: '#5B6C9B',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#5B6C9B',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#5B6C9B'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.r !== null) {
+                                    label += context.parsed.r;
+                                }
+                                return label;
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Enfoque de Habilidades Diarias',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+
+        collapsibleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const arrow = button.querySelector('span');
+                content.classList.toggle('expanded');
+                arrow.classList.toggle('rotated-arrow');
+            });
+        });
+
+        levelLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
