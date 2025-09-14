@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Estudio de Inglés</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .collapsible-content.expanded {
+            max-height: 1000px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+        <header class="text-center py-8">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-[#5B6C9B] mb-2">Calendario de Estudio de Inglés</h1>
+            <p class="text-2xl text-[#8E9AAF] font-medium">De A1 a C2</p>
+        </header>
+
+        <section id="resumen-anual" class="bg-white p-6 rounded-2xl shadow-lg my-8">
+            <p class="text-lg md:text-xl text-center mb-6 text-gray-600">Este calendario te ayuda a estructurar tu aprendizaje. Los tiempos de estudio son sugerencias y la consistencia es más importante que la duración.</p>
+
+            <h2 class="text-3xl font-bold text-center mb-6 text-[#5B6C9B]">Resumen del Plan Anual</h2>
+            
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="#a1-section" class="level-card bg-[#BDD9D2] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#A9C8C0] text-center">
+                    A1<br><span class="text-sm">4 meses</span>
+                </a>
+                <a href="#a2-section" class="level-card bg-[#98D6B4] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#85C4A0] text-center">
+                    A2<br><span class="text-sm">7 meses</span>
+                </a>
+                <a href="#b1-section" class="level-card bg-[#8AB6C7] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#77A3B4] text-center">
+                    B1<br><span class="text-sm">10 meses</span>
+                </a>
+                <a href="#b2-section" class="level-card bg-[#8AA0C7] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#778DB4] text-center">
+                    B2<br><span class="text-sm">12 meses</span>
+                </a>
+                <a href="#c1-section" class="level-card bg-[#A78AB8] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#9477A5] text-center">
+                    C1<br><span class="text-sm">12 meses+</span>
+                </a>
+                <a href="#c2-section" class="level-card bg-[#8A8AB8] text-[#2E4057] font-semibold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-[#7777A5] text-center">
+                    C2<br><span class="text-sm">12 meses+</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-2xl shadow-lg my-8">
+            <h2 class="text-3xl font-bold text-center mb-6 text-[#5B6C9B]">Visualización de Progreso</h2>
+            <p class="text-lg md:text-xl text-center mb-6 text-gray-600">Este gráfico muestra las horas estimadas de estudio para cada nivel. Ten en cuenta que el tiempo puede variar dependiendo de la persona.</p>
+            <div class="chart-container w-full max-w-2xl mx-auto h-96">
+                <canvas id="studyHoursChart"></canvas>
+            </div>
+        </section>
+        
+        <section id="a1-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel A1</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">El nivel A1 se centra en construir los cimientos del japonés. La meta principal es familiarizarse con los dos silabarios básicos, Hiragana y Katakana, y comenzar a entender las estructuras gramaticales más simples.</p>
+                <div class="space-y-4">
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#BDD9D2] text-[#2E4057] focus:outline-none">
+                            Mes 1: Fundamentos
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <h4 class="font-bold text-gray-700">Semana 1: Fundamentos</h4>
+                            <p class="text-gray-600">Aprende los sonidos del japonés. Aprende las primeras filas de Hiragana. Gramática: Introducción al verbo `desu` y la estructura `S + wa + O + desu`. Vocabulario: Saludos y frases básicas. Práctica: Escribe y lee las sílabas aprendidas.</p>
+                            <h4 class="font-bold text-gray-700 mt-4">Semana 2: Partículas y pronombres</h4>
+                            <p class="text-gray-600">Aprende las siguientes filas de Hiragana. Gramática: Partículas `no` (posesión) y `ka` (pregunta). Vocabulario: Números (1-10). Práctica: Crea oraciones simples.</p>
+                            <h4 class="font-bold text-gray-700 mt-4">Semana 3: Adjetivos y verbos</h4>
+                            <p class="text-gray-600">Aprende el resto del Hiragana. Gramática: Adjetivos (`i` y `na`). Vocabulario: Días de la semana. Práctica: Describe objetos y personas.</p>
+                            <h4 class="font-bold text-gray-700 mt-4">Semana 4: Verbos y kanji</h4>
+                            <p class="text-gray-600">Aprende los verbos en forma `masu`. Gramática: Verbos de movimiento. Vocabulario: Vocabulario de comida y kanji básicos (1-10). Práctica: Formula oraciones con verbos en forma `masu`.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#BDD9D2] text-[#2E4057] focus:outline-none">
+                            Meses 2-4: Expansión de Habilidades
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <p class="text-gray-600 mb-4">Dominio del pasado y negación. Introducción al Katakana y a las preguntas. Gramática: Formas `masen`, `mashita`, `masen deshita`, partículas `ni` y `de`. Demostrativos `kore`, `sore`, `are`. Vocabulario: Katakana completo y kanji básicos (100). Habilidad: Hablar del pasado, identificar y describir objetos. </p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#BDD9D2] text-[#2E4057] focus:outline-none">
+                            Vocabulario A1
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Saludos (ohayou, konnichiwa, konbanwa) y presentaciones.</li>
+                                <li>Números (1-100), días de la semana, meses y fechas.</li>
+                                <li>Comida, familia, profesiones y lugares comunes.</li>
+                                <li>Adjetivos básicos (`ookii`, `chiisai`, `yasui`).</li>
+                                <li>Pronombres personales (`watashi`, `anata`).</li>
+                                <li>Objetos cotidianos y kanji básicos (aprox. 100).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#BDD9D2] text-[#2E4057] focus:outline-none">
+                            Gramática A1
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Estructura de la oración `S + wa + O + desu`.</li>
+                                <li>Partículas `wa`, `no`, `ka`, `ni`, `e`, `o`.</li>
+                                <li>Verbos en forma `masu` (presente) y sus conjugaciones de negación (`masen`) y pasado (`mashita`).</li>
+                                <li>Demostrativos (`kore`, `sore`, `are`).</li>
+                                <li>Adjetivos `i` y `na`.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="a2-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel A2</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">En este nivel, tu objetivo es consolidar los fundamentos y expandir tus habilidades para hablar sobre rutinas, planes y experiencias pasadas. Dominarás la forma "te" de los verbos y ganarás fluidez en conversaciones cotidianas.</p>
+                <div class="space-y-4">
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#98D6B4] text-[#2E4057] focus:outline-none">
+                            Meses 5-7: Verbos y gramática
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <p class="text-gray-600 mb-4">Verbos de movimiento. Gramática: forma `te` y sus usos (`-te kudasai`, `-te imasu`, `-te mo ii desu ka`). Conjugaciones informales (`~dict.`, `~ta`, `~nai`). Habilidad: Describir acciones en curso y hacer peticiones. </p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#98D6B4] text-[#2E4057] focus:outline-none">
+                            Meses 8-11: Existencia y kanji
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <p class="text-gray-600 mb-4">Gramática: expresiones de existencia (`arimasu`, `imasu`). Comparativos y superlativos. Uso de `kara` y `node`. Habilidad: Hablar de la ubicación de cosas y expresar razones. </p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#98D6B4] text-[#2E4057] focus:outline-none">
+                            Vocabulario A2
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Expresiones de tiempo y frecuencia.</li>
+                                <li>Nombres de transporte y direcciones.</li>
+                                <li>Verbos de acción y estado más comunes.</li>
+                                <li>Vocabulario para hobbies y lugares.</li>
+                                <li>Aproximadamente 300 kanji para temas cotidianos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#98D6B4] text-[#2E4057] focus:outline-none">
+                            Gramática A2
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Forma `te` y sus usos.</li>
+                                <li>Conjugaciones informales (`~dict.`, `~ta`, `~nai`).</li>
+                                <li>Expresiones de existencia (`arimasu`, `imasu`).</li>
+                                <li>Comparativos y superlativos.</li>
+                                <li>Uso de `kara` y `node`.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="b1-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel B1</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">En el nivel B1, te moverás de lo básico a lo funcional. Aprenderás a narrar historias, a expresar opiniones y a usar el lenguaje de respeto (`Keigo`) básico. Tu vocabulario se expandirá para incluir temas más complejos.</p>
+                <div class="space-y-4">
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8AB6C7] text-[#2E4057] focus:outline-none">
+                            Meses 12-17: Gramática intermedia
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <p class="text-gray-600 mb-4">Gramática: voz pasiva (`-rareru`), causativa (`-saseru`), formas condicionales (`-tara`, `-ba`, `-to`, `-nara`). `Keigo` básico. Vocabulario: Expresiones para opinar y términos de trabajo y educación. Habilidad: Entender y narrar historias simples y ofrecer consejos. </p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8AB6C7] text-[#2E4057] focus:outline-none">
+                            Meses 18-21: Citas y kanji
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <p class="text-gray-600 mb-4">Gramática: Citas directas e indirectas (`to omoimasu`). Vocabulario: Más de 600 kanji (JLPT N4 y N3). Proverbios básicos. Habilidad: Escribir ensayos cortos y resumir textos. </p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8AB6C7] text-[#2E4057] focus:outline-none">
+                            Vocabulario B1
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Expresiones para opinar.</li>
+                                <li>Términos de trabajo y educación.</li>
+                                <li>Expresiones idiomáticas básicas.</li>
+                                <li>Más de 600 kanji (JLPT N4 y N3).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8AB6C7] text-[#2E4057] focus:outline-none">
+                            Gramática B1
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Voz pasiva (`-rareru`) y causativa (`-saseru`).</li>
+                                <li>Formas condicionales (`-tara`, `-ba`, `-to`, `-nara`).</li>
+                                <li>`Keigo` básico.</li>
+                                <li>Citas directas e indirectas (`to omoimasu`).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="b2-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel B2</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">En este nivel, la fluidez y la espontaneidad son clave. Podrás debatir, dar presentaciones y leer textos complejos sin gran dificultad. El enfoque se amplía a temas sociales y académicos.</p>
+                <div class="space-y-4">
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8AA0C7] text-[#2E4057] focus:outline-none">
+                            Meses 22-29: Gramática y discurso avanzado
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <p class="text-gray-600 mb-4">Verbos modales de deducción (`-hazu`, `-ka mo shiremasen`). Voz pasiva avanzada (`-serareru`). `Reporting verbs` y conectores avanzados (`shikashi`). Vocabulario: para temas sociales, económicos y de negocios. Habilidad: Participar en debates, dar presentaciones formales y leer textos complejos. </p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8AA0C7] text-[#2E4057] focus:outline-none">
+                            Vocabulario B2
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Vocabulario para temas sociales y económicos.</li>
+                                <li>Más de 1000 kanji.</li>
+                                <li>Terminología de negocios.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8AA0C7] text-[#2E4057] focus:outline-none">
+                            Gramática B2
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Verbos modales de deducción (`-hazu`, `-ka mo shiremasen`).</li>
+                                <li>Voz pasiva avanzada (`-serareru`).</li>
+                                <li>`Reporting verbs` y conectores avanzados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="c1-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel C1</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">Aquí, la meta es la maestría en la fluidez y la riqueza del lenguaje. Tu dominio del japonés te permitirá comprender y producir textos complejos de cualquier tipo, desde literatura hasta informes académicos.</p>
+                <div class="space-y-4">
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#A78AB8] text-[#2E4057] focus:outline-none">
+                            Meses 30-34: Dominio del lenguaje complejo
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <p class="text-gray-600 mb-4">Gramática: Uso avanzado de la voz pasiva y sus variaciones. Estructuras complejas para la cohesión. Vocabulario: Vocabulario académico y profesional. `Collocations` y expresiones de alto nivel. Kanji avanzados (1800+). Habilidad: Lee textos literarios y escribe ensayos. </p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#A78AB8] text-[#2E4057] focus:outline-none">
+                            Vocabulario C1
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Vocabulario académico y profesional.</li>
+                                <li>`Collocations` y expresiones de alto nivel.</li>
+                                <li>Kanji avanzados (1800+).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#A78AB8] text-[#2E4057] focus:outline-none">
+                            Gramática C1
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Uso avanzado de la voz pasiva y sus variaciones.</li>
+                                <li>Estructuras complejas para la cohesión y fluidez.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="c2-section" class="my-8 scroll-mt-20">
+            <h2 class="text-4xl font-bold mb-4 text-[#5B6C9B]">Nivel C2</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                <p class="text-gray-600 mb-4">El nivel de maestría significa que puedes usar el japonés con la misma fluidez y precisión que un hablante nativo, en cualquier situación. Tu conocimiento se expande a las sutilezas culturales y el argot.</p>
+                <div class="space-y-4">
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8A8AB8] text-[#2E4057] focus:outline-none">
+                            Meses 35-42: Maestría y sutilezas
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <p class="text-gray-600 mb-4">Dominio completo de toda la gramática. Vocabulario de la jerga, `slang` y expresiones coloquiales. Proverbios y dichos populares. Habilidad: Conversar sin esfuerzo, persuadir y negociar. Comprende cualquier tipo de lenguaje hablado y escrito. </p>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8A8AB8] text-[#2E4057] focus:outline-none">
+                            Vocabulario C2
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Vocabulario de la jerga, `slang` y expresiones coloquiales.</li>
+                                <li>Proverbios y dichos populares.</li>
+                                <li>Vocabulario especializado para tu área de interés.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="collapsible-container">
+                        <button class="flex items-center justify-between w-full p-4 font-bold text-left rounded-xl bg-[#8A8AB8] text-[#2E4057] focus:outline-none">
+                            Gramática C2
+                            <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="collapsible-content p-4 bg-gray-50 rounded-b-xl">
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Dominio completo y flexible de la gramática.</li>
+                                <li>Capacidad para adaptar el lenguaje a diferentes contextos sociales y profesionales.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-8 text-gray-500">
+            <p>&copy; 2024 Calendario de Estudio de Inglés. Todos los derechos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const collapsibleButtons = document.querySelectorAll('.collapsible-container button');
+        const levelLinks = document.querySelectorAll('.level-card');
+        const chartCtx = document.getElementById('studyHoursChart').getContext('2d');
+
+        const studyData = {
+            labels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
+            data: [120, 175, 225, 225, 275, 300],
+            colors: ['#BDD9D2', '#98D6B4', '#8AB6C7', '#8AA0C7', '#A78AB8', '#8A8AB8']
+        };
+
+        const studyHoursChart = new Chart(chartCtx, {
+            type: 'bar',
+            data: {
+                labels: studyData.labels,
+                datasets: [{
+                    label: 'Horas estimadas por nivel',
+                    data: studyData.data,
+                    backgroundColor: studyData.colors,
+                    borderColor: studyData.colors.map(color => color.replace(')', ', 0.8)')),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y + ' horas';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Horas de Estudio'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Nivel'
+                        }
+                    }
+                }
+            }
+        });
+
+        collapsibleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const arrow = button.querySelector('span');
+                content.classList.toggle('expanded');
+                arrow.classList.toggle('rotate-180');
+            });
+        });
+
+        levelLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
